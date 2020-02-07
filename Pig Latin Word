@@ -1,0 +1,17 @@
+def pig_latin_word(word)
+  vowels = "aieou"
+  if vowels.include?(word[0])
+    return word + "yay"
+  end
+  word.each_char.with_index do |char, idx|
+    before_vowel = word[0...idx]
+    after_vowel = word[idx..-1]
+    return after_vowel + before_vowel + "ay"
+  end
+end
+
+
+puts pig_latin_word("apple")   # => "appleyay"
+puts pig_latin_word("eat")     # => "eatyay"
+puts pig_latin_word("banana")  # => "ananabay"
+puts pig_latin_word("trash")   # => "ashtray"
