@@ -1,0 +1,7 @@
+def dupe_indices(array)
+    indices = Hash.new { |h, k| h[k] = [] }
+    array.each_with_index do |ele, i|
+        indices[ele] << i 
+    end
+    indices.select { |ele, arr| arr.length > 1 }
+end
