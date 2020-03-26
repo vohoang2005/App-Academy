@@ -1,0 +1,40 @@
+Exercise # 1
+---------------------------------
+def range(min, max)
+    return [] if max <= min
+    
+    p range(min, max-1) << max - 1
+end
+
+p range(1,5)
+
+Exercise # 2
+----------------------------------
+def sum_iter(nums)
+  sum = 0
+  nums.each { |num| sum += num }
+  sum
+end
+
+def sum_rec(nums)
+  return 0 if nums.empty?
+  nums[0] + sum_rec(nums.drop(1))
+end
+----------------------------------
+Exercise # 3
+def exp1(base, power)
+  power == 0 ? 1 : base * exp1(base, power - 1)
+end
+
+def exp2(base, power)
+  return 1 if power == 0
+
+  half = exp2(base, power / 2)
+
+  if power.even?
+    half * half
+  else
+    # note that (power / 2) == ((power - 1) / 2) if power.odd?
+    base * half * half
+  end
+end
